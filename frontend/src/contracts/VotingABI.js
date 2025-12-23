@@ -5,6 +5,25 @@ export const VotingABI = [
     "type": "constructor"
   },
   {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "internalType": "address",
+        "name": "voter",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "internalType": "uint256",
+        "name": "candidateIndex",
+        "type": "uint256"
+      }
+    ],
+    "name": "Voted",
+    "type": "event"
+  },
+  {
     "inputs": [
       {
         "internalType": "uint256",
@@ -34,23 +53,10 @@ export const VotingABI = [
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "getCandidatesCount",
-    "outputs": [
-      {
-        "internalType": "uint256",
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
     "inputs": [
       {
         "internalType": "uint256",
-        "name": "index",
+        "name": "_index",
         "type": "uint256"
       }
     ],
@@ -76,10 +82,23 @@ export const VotingABI = [
     "type": "function"
   },
   {
+    "inputs": [],
+    "name": "getCandidatesCount",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
     "inputs": [
       {
         "internalType": "uint256",
-        "name": "candidateIndex",
+        "name": "_candidateIndex",
         "type": "uint256"
       }
     ],
@@ -106,25 +125,6 @@ export const VotingABI = [
     ],
     "stateMutability": "view",
     "type": "function"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "internalType": "address",
-        "name": "voter",
-        "type": "address"
-      },
-      {
-        "indexed": true,
-        "internalType": "uint256",
-        "name": "candidateIndex",
-        "type": "uint256"
-      }
-    ],
-    "name": "Voted",
-    "type": "event"
   }
 ];
 

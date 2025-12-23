@@ -21,9 +21,9 @@ contract Voting {
     // 构造函数，初始化候选人
     constructor() {
         // 初始化一些默认候选人
-        addCandidate("候选人 A");
-        addCandidate("候选人 B");
-        addCandidate("候选人 C");
+        addCandidate(unicode"候选人 A");
+        addCandidate(unicode"候选人 B");
+        addCandidate(unicode"候选人 C");
     }
 
     // 添加候选人
@@ -38,7 +38,7 @@ contract Voting {
 
     // 获取候选人信息
     function getCandidate(uint256 _index) public view returns (uint256, string memory, uint256) {
-        require(_index < candidates.length, "候选人不存在");
+        require(_index < candidates.length, unicode"候选人不存在");
         Candidate memory candidate = candidates[_index];
         return (candidate.id, candidate.name, candidate.voteCount);
     }
@@ -46,10 +46,10 @@ contract Voting {
     // 投票函数
     function vote(uint256 _candidateIndex) public {
         // 检查是否已经投票
-        require(!voters[msg.sender], "你已经投过票了");
+        require(!voters[msg.sender], unicode"你已经投过票了");
         
         // 检查候选人是否存在
-        require(_candidateIndex < candidates.length, "候选人不存在");
+        require(_candidateIndex < candidates.length, unicode"候选人不存在");
         
         // 记录投票
         voters[msg.sender] = true;
